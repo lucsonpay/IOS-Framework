@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GatewayDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="200" borderStyle="roundedRect" placeholder="Transaction Amount" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="00u-kd-vPP">
+                                <rect key="frame" x="25" y="60" width="325" height="39.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="8bC-Xf-vdC" id="vv9-AO-POF"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6Z-fk-lY7">
+                                <rect key="frame" x="50" y="190.5" width="275" height="45"/>
+                                <color key="backgroundColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="niW-Oe-3KL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Make Payment">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="makePayement" destination="BYZ-38-t0r" eventType="touchUpInside" id="l4V-hU-vhy"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="5" translatesAutoresizingMaskIntoConstraints="NO" id="kE0-wY-wxi">
+                                <rect key="frame" x="25" y="129.5" width="325" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="CC"/>
+                                    <segment title="DB"/>
+                                    <segment title="NB"/>
+                                    <segment title="WL"/>
+                                    <segment title="None"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="00u-kd-vPP" secondAttribute="trailing" constant="25" id="0Nf-c4-7fn"/>
+                            <constraint firstItem="g6Z-fk-lY7" firstAttribute="top" secondItem="kE0-wY-wxi" secondAttribute="bottom" constant="30" id="8RK-vH-hXz"/>
+                            <constraint firstItem="00u-kd-vPP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="U54-TV-d25"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kE0-wY-wxi" secondAttribute="trailing" constant="25" id="cLH-bd-InC"/>
+                            <constraint firstItem="g6Z-fk-lY7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dUk-yJ-f8C"/>
+                            <constraint firstItem="kE0-wY-wxi" firstAttribute="top" secondItem="00u-kd-vPP" secondAttribute="bottom" constant="30" id="hwZ-d4-x9A"/>
+                            <constraint firstItem="kE0-wY-wxi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="pKj-IM-hxE"/>
+                            <constraint firstItem="g6Z-fk-lY7" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-100" id="tXs-5z-V7w"/>
+                            <constraint firstItem="00u-kd-vPP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="xrk-mE-gfM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="amountTextField" destination="00u-kd-vPP" id="aLb-bE-8sc"/>
+                        <outlet property="paymentModeSegment" destination="kE0-wY-wxi" id="sQf-ZK-hpH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1068" y="-767"/>
+        </scene>
+    </scenes>
+</document>

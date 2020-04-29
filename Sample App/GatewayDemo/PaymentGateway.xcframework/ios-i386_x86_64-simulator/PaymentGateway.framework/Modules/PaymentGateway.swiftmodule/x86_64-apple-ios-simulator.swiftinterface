@@ -1,0 +1,99 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.2 effective-4.2 (swiftlang-1103.0.32.6 clang-1103.0.32.51)
+// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -module-name PaymentGateway
+import CommonCrypto
+import Foundation
+import Swift
+import UIKit
+import WebKit
+@_hasMissingDesignatedInitializers public class PGResponse {
+  public var responseCode: Swift.String? {
+    get
+  }
+  public var responseMessage: Swift.String? {
+    get
+  }
+  public var responseDateTime: Swift.String? {
+    get
+  }
+  public var customerName: Swift.String? {
+    get
+  }
+  public var customerEmail: Swift.String? {
+    get
+  }
+  public var customerPhone: Swift.String? {
+    get
+  }
+  public var status: Swift.String? {
+    get
+  }
+  public var amount: Swift.Int? {
+    get
+  }
+  public var orderID: Swift.String? {
+    get
+  }
+  public var paymentID: Swift.String? {
+    get
+  }
+  public var productDesc: Swift.String? {
+    get
+  }
+  public var currencyCode: Swift.String? {
+    get
+  }
+  public var transactionID: Swift.String? {
+    get
+  }
+  public var transactionType: Swift.String? {
+    get
+  }
+  public var hash: Swift.String? {
+    get
+  }
+  public var returnURL: Swift.String? {
+    get
+  }
+  @objc deinit
+}
+public enum PGPaymentMode {
+  case None
+  case All
+  case CreditCard
+  case DebitCard
+  case NetBanking
+  case Wallet
+  public static func == (a: PaymentGateway.PGPaymentMode, b: PaymentGateway.PGPaymentMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum PGErrorType {
+  case DismissedByUser
+  case InvalidResponse
+  case UnableToCreateRequest
+  case UnableToLoadPage
+  public static func == (a: PaymentGateway.PGErrorType, b: PaymentGateway.PGErrorType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol PaymentGatewayDelegate : AnyObject {
+  func transactionResponse(response: PaymentGateway.PGResponse)
+  func transactionError(errorType: PaymentGateway.PGErrorType, message: Swift.String)
+}
+@_hasMissingDesignatedInitializers public class Gateway {
+  public class func initiateTransaction(request: PaymentGateway.PGRequest, delegate: PaymentGateway.PaymentGatewayDelegate, controller: UIKit.UIViewController)
+  @objc deinit
+}
+public class PGRequest {
+  required public init(gatewayURL: Swift.String, merchantKey: Swift.String, merchantName: Swift.String, paymentID: Swift.String, paymentMode: PaymentGateway.PGPaymentMode, currencyCode: Swift.String, amount: Swift.Int, orderID: Swift.String, transactionType: Swift.String, productDesc: Swift.String, customerName: Swift.String, customerEmail: Swift.String, customerPhone: Swift.String, customerAddress: Swift.String, customerZip: Swift.String, screenTitle: Swift.String, returnURL: Swift.String) throws
+  @objc deinit
+}
+extension PaymentGateway.PGPaymentMode : Swift.Equatable {}
+extension PaymentGateway.PGPaymentMode : Swift.Hashable {}
+extension PaymentGateway.PGErrorType : Swift.Equatable {}
+extension PaymentGateway.PGErrorType : Swift.Hashable {}
